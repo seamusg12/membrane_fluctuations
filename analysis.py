@@ -44,7 +44,7 @@ def bootstrap(f,q,y,dy,p0=None,bounds=[-np.inf,np.inf],absolute_sigma=True,NBoot
     for i in range(Nboot):
         ytest = np.random.normal(y,dy,len(y))
         try: 
-            popt,pcov = curve_fit(f_h,q,ytest,sigma=dy,p0=p0,bounds=bounds,absolute_sigma=absolute_sigma)
+            popt,pcov = curve_fit(f,q,ytest,sigma=dy,p0=p0,bounds=bounds,absolute_sigma=absolute_sigma)
             arr.append(np.array(popt))
         except RuntimeError: print("Error - curve_fit failed")
 
